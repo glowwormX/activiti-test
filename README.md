@@ -297,6 +297,23 @@ bpmnModeler._definitions.rootElements[0]
 bpmnModeler._definitions.rootElements[0].flowElements.push(boundaryEvent);
 ```
 
+### 10 默认导入的空xml，给标签的id赋动态值报：没有可展示的流程/协作
+
+![](https://github.com/griabcrh/vue-activiti-demo/blob/master/vue-activiti-demo/static/process-design.png)
+
+我的默认空xml如下：
+![](https://github.com/griabcrh/vue-activiti-demo/blob/master/vue-activiti-demo/static/process-design3.png)
+
+最后生成的xml如下：
+![](https://github.com/griabcrh/vue-activiti-demo/blob/master/vue-activiti-demo/static/process-design4.png)
+
+可以看到上图中id是以数字开头的， 就是这里导致的😂😂😂
+
+只要开头是字母就没事了，例如：
+``` bash
+id = `T-${uuidv4()}`
+```
+
 此处应有掌声👏👏👏
 
 ### 怼回去🤔️🤔️🤔️
