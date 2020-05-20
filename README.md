@@ -316,6 +316,26 @@ id = `T-${uuidv4()}`
 
 此处应有掌声👏👏👏
 
+### 11 BpmnViewer流程追踪展示流程图，但是流程图被遮挡🌟
+
+```
+const currentViewbox = this.bpmnViewer.get('canvas').viewbox()      
+const widthWindow = window.outerWidth;      
+const heightWindow = window.outerHeight;      
+const elementMid = {        
+x: widthWindow / 2,        
+y: heightWindow / 2      
+}      
+this.bpmnViewer.get('canvas').viewbox({        
+x: elementMid.x - currentViewbox.width / 2,        
+y: elementMid.y - currentViewbox.height / 2,        
+width: currentViewbox.width,        
+height: currentViewbox.height      
+})      
+const width = document.getElementById('canvas').offsetWidth      
+this.bpmnViewer.get('canvas').zoom(width / this.width)
+```
+
 ### 怼回去🤔️🤔️🤔️
 
 如果后端传给前端的是json文件，不是xml；请大胆的怼回去🤔️🤔️🤔️
