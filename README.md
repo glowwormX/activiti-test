@@ -284,9 +284,12 @@ loopCharacteristics['completionCondition'] = completionCondition;
 modeling.updateProperties(element, { loopCharacteristics: loopCharacteristics });
 ```
 
-### 8 获取根节点
+### 8 获取全部节点和根节点
 ``` bash
+// 获取全部节点，也可以用来获取根节点
 bpmnModeler._definitions.rootElements[0]
+// 根节点
+bpmnModeler.get('canvas').getRootElement()
 ```
 
 ### 9 如何给节点的同级添加节点
