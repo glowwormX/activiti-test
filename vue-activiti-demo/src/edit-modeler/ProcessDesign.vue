@@ -2,7 +2,7 @@
   <el-dialog
   title="流程设计器"
   :visible.sync="dialogVisible"
-  width="80%"
+  width="90%"
   :before-close="handleClose">
   <Modeler ref="modeler" :params="params"></Modeler>
   <span slot="footer" class="dialog-footer">
