@@ -1,0 +1,11 @@
+INSERT INTO activiti.ACT_ID_GROUP (ID_, REV_, NAME_, TYPE_) VALUES ('boss', 1, null, null);
+INSERT INTO activiti.ACT_ID_GROUP (ID_, REV_, NAME_, TYPE_) VALUES ('hr', 1, null, null);
+INSERT INTO activiti.ACT_ID_GROUP (ID_, REV_, NAME_, TYPE_) VALUES ('manager', 1, null, null);
+INSERT INTO activiti.ACT_ID_USER (ID_, REV_, FIRST_, LAST_, EMAIL_, PWD_, PICTURE_ID_) VALUES ('boss1', 1, null, null, null, null, null);
+INSERT INTO activiti.ACT_ID_USER (ID_, REV_, FIRST_, LAST_, EMAIL_, PWD_, PICTURE_ID_) VALUES ('hr1', 1, null, null, null, null, null);
+INSERT INTO activiti.ACT_ID_USER (ID_, REV_, FIRST_, LAST_, EMAIL_, PWD_, PICTURE_ID_) VALUES ('manager1', 1, null, null, null, null, null);
+INSERT INTO activiti.ACT_ID_USER (ID_, REV_, FIRST_, LAST_, EMAIL_, PWD_, PICTURE_ID_) VALUES ('manager2', 1, null, null, null, null, null);
+INSERT INTO activiti.ACT_ID_MEMBERSHIP (USER_ID_, GROUP_ID_) VALUES ('boss1', 'boss');
+INSERT INTO activiti.ACT_ID_MEMBERSHIP (USER_ID_, GROUP_ID_) VALUES ('hr1', 'hr');
+INSERT INTO activiti.ACT_ID_MEMBERSHIP (USER_ID_, GROUP_ID_) VALUES ('manager1', 'manager');
+INSERT INTO activiti.ACT_ID_MEMBERSHIP (USER_ID_, GROUP_ID_) VALUES ('manager2', 'manager');

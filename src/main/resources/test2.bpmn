@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:activiti="http://activiti.org/bpmn"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:tns="http://www.activiti.org/test"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             id="m1590664843587"
+             name=""
+             targetNamespace="http://www.activiti.org/test"
+             typeLanguage="http://www.w3.org/2001/XMLSchema">
+   <process xmlns="" id="myProcess_1" isClosed="false" isExecutable="true"
+            processType="None">
+      <startEvent activiti:initiator="applyUserId" id="start" name="start">
+        <extensionElements>
+            <activiti:formProperty datePattern="yyyy-MM-dd" id="startDate" name="请假开始日期" required="true" type="date"/>
+            <activiti:formProperty datePattern="yyyy-MM-dd" id="endDate" name="请假结束日期" required="true" type="date"/>
+            <activiti:formProperty id="reason" name="请假原因" required="true" type="string"/>
+        </extensionElements>
+        </startEvent>
+   </process>
+   <bpmndi:BPMNDiagram xmlns=""
+                       documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0"
+                       id="Diagram-_1"
+                       name="New Diagram">
+      <bpmndi:BPMNPlane bpmnElement="myProcess_1">
+         <bpmndi:BPMNShape bpmnElement="_2" id="Shape-_2">
+            <omgdc:Bounds height="32.0" width="32.0" x="345.0" y="250.0"/>
+            <bpmndi:BPMNLabel>
+               <omgdc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+</definitions>
