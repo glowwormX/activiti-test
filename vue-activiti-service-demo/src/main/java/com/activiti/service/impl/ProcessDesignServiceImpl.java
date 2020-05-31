@@ -104,6 +104,7 @@ public class ProcessDesignServiceImpl implements ProcessDesignService {
         }
         JsonNode modelNode = objectMapper.readTree(bytes);
         BpmnModel model = new BpmnJsonConverter().convertToBpmnModel(modelNode);
+        BpmnModel model1 = new com.activiti.converter.BpmnJsonConverter().convertToBpmnModel(modelNode);
         if (model.getProcesses().size() == 0){
             return "数据模型不符合要求，请至少设计一条主线程流。";
         }
