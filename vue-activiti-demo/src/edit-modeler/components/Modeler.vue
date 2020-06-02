@@ -72,8 +72,8 @@ export default {
       element: null,
       key: '1',
       defaultData: {
-        'bpmn:StartEvent': '交易开始',
-        'bpmn:EndEvent':'交易完成',
+        'bpmn:StartEvent': '开始',
+        'bpmn:EndEvent':'完成',
         'bpmn:IntermediateThrowEvent':'交易终止'
 
       }
@@ -89,7 +89,7 @@ export default {
               return;
             }
             console.log(xml);
-            
+
         });
       },
       saveXML(){
@@ -123,9 +123,9 @@ export default {
               });
 
             })
-            
+
         });
-        
+
       },
       saveSVG(call){
         this.bpmnModeler.saveSVG(function(err,xml){
@@ -147,7 +147,7 @@ export default {
           //添加属性面板，添加翻译模块
           additionalModules: [
               customTranslateModule,
-              customControlsModule  
+              customControlsModule
           ],
           //模块拓展，拓展activiti的描述
           moddleExtensions: {
@@ -155,7 +155,7 @@ export default {
           }
         });
         this.importBpmnXml()
-        
+
       },
       //导入xml文档
       importBpmnXml(){
@@ -204,7 +204,7 @@ export default {
               that.key = e.element.id.replace('_label', '');
               that.propsComponent = bpmnHelper.getComponentByEleType(shape.type);
               that.element = e.element;
-              
+
             } else if (event === 'shape.move.end') {
               console.log('移动了shape')
               // 展示新增图形的属性
@@ -240,7 +240,7 @@ export default {
                 that.propsComponent = bpmnHelper.getComponentByEleType(e.element.type);
                 that.element = e.element;
               }
-              
+
             }
           })
         })

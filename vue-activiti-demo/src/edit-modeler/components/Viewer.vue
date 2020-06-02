@@ -60,8 +60,8 @@ export default {
       element: null,
       key: '1',
       defaultData: {
-        'bpmn:StartEvent': '交易开始',
-        'bpmn:EndEvent':'交易完成',
+        'bpmn:StartEvent': '开始',
+        'bpmn:EndEvent':'完成',
         'bpmn:IntermediateThrowEvent':'交易终止'
 
       }
@@ -78,7 +78,7 @@ export default {
           container: canvas
         });
         this.importBpmnXml()
-        
+
       },
       //导入xml文档
       importBpmnXml(){
@@ -121,7 +121,7 @@ export default {
               that.key = e.element.id.replace('_label', '');
               that.propsComponent = bpmnHelper.getComponentByEleType(shape.type + 'Readonly');
               that.element = e.element;
-              
+
             } else if (event === 'shape.move.end') {
               console.log('移动了shape')
               // 展示新增图形的属性
@@ -157,7 +157,7 @@ export default {
                 that.propsComponent = bpmnHelper.getComponentByEleType(e.element.type + 'Readonly');
                 that.element = e.element;
               }
-              
+
             }
           })
         })

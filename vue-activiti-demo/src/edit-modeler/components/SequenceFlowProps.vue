@@ -15,7 +15,7 @@
                 <el-option label="否" :value=false></el-option>
             </el-select>
         </el-form-item> -->
-        
+
         <el-dialog title="跳转条件配置" :visible.sync="dialogTableVisible" :modal="false" width="1000px" @close="closeDialog">
              <el-container>
                     <el-main>
@@ -62,11 +62,17 @@
                                                 </el-option>
                                             </el-select>
                                         </el-form-item>
+<!--                                      <el-form-item label="变量">-->
+<!--                                        <el-input v-model="form.variable"></el-input>-->
+<!--                                      </el-form-item>-->
+<!--                                      <el-form-item label="判断条件">-->
+<!--                                        <el-input v-model="form.conditionalOpt"></el-input>-->
+<!--                                      </el-form-item>-->
                                         <el-form-item label="值">
                                             <AdapterComponent :type ="form.tmp.componentType" :data="form.tmp.conditionalValData" v-model="form.conditionalVal"></AdapterComponent>
                                         </el-form-item>
                                         <el-form-item label="逻辑">
-                                            
+
                                             <el-select v-model="form.logic" placeholder="请选择">
                                                 <el-option
                                                     v-for="item in logicOptions"
@@ -81,11 +87,11 @@
                                 <div v-else>
                                     未选择条件
                                 </div>
-                                
+
                             </el-main>
                     </el-container>
                  </el-main>
-                 <el-footer style="textAlign:right">    
+                 <el-footer style="textAlign:right">
                     <el-button type="primary" @click="dialogTableVisible = false">取 消</el-button>
                     <el-button type="primary" @click="saveConditions">保存并关闭</el-button>
                  </el-footer>
@@ -97,7 +103,7 @@
 import bpmnHelper from '../js/helper/BpmnHelper';
 import {is} from 'bpmn-js/lib/util/ModelUtil';
 import AdjacencyMatrixGraph from '../js/util/AdjacencyMatrixGraph';
-import {OperatorAllOptions,LogicOptions,wfResult,OperatorLessOptions} from '../../static/js/static';
+import {OperatorAllOptions, LogicOptions, wfResult, OperatorLessOptions, ConditionList} from '../../static/js/static';
 import {isBlank} from '../js/util/CommonUtils';
 import AdapterComponent from '../assistComponents/AdapterComponent.vue';
 import {IntAttri} from '../../static/js/static';
@@ -132,9 +138,11 @@ export default {
             needConditiona:false,
             dialogTableVisible:false,
             //条件列表
-            conditionList:[],
+            // conditionList:[],
+            conditionList:ConditionList,
             logicOptions: LogicOptions,
-            conditionalOpts:[],
+          // conditionalOpts:[],
+            conditionalOpts:OperatorAllOptions,
             formShow:false,
             form:{
                 id:'',
@@ -153,7 +161,7 @@ export default {
                 conditions: [],
                 selectedRow:undefined
             }
-            
+
         }
     },
 
@@ -203,14 +211,14 @@ export default {
                 forEach(conditions,function(condition,index){
                     let conditionInfo = find(conditionList,{VALUE:condition.variable});
                     if(conditionInfo){
-                         let conditionalVal; 
+                         let conditionalVal;
                          if(conditionInfo.type != 'number'){
                             conditionalVal = '"'+condition.conditionalVal+'"';
                          }
                          if(index == conditions.length-1 || conditions.length == 1){
-                            conditionExpress += condition.variable+condition.conditionalOpt+conditionalVal;
+                            conditionExpress += condition.variable+condition.conditionalOpt+condition.conditionalVal;
                          }else{
-                            conditionExpress += condition.variable+condition.conditionalOpt+conditionalVal+' '+condition.logic+' ';
+                            conditionExpress += condition.variable+condition.conditionalOpt+condition.conditionalVal+' '+condition.logic+' ';
                          }
                     }
                 });
@@ -220,9 +228,9 @@ export default {
                 const commandStack = bpmnModeler.get('commandStack');
                 if(conditionExpress.length > 0){
                     let conditionalEventDefinition = eventDefinitionHelper.getConditionalEventDefinition(this.element);
-                    
+
                     const bpmnFactory = bpmnModeler.get('bpmnFactory');
-                    
+
                     //生成表达式
                     conditionExpress = '${' + conditionExpress + '}';
                     //设置表达式的值
@@ -239,9 +247,10 @@ export default {
                     // }
                 }
                 bpmnHelper.updatePropertiesByCmd(this.element,commandStack,{conditionExpression: conditionOrConditionExpression});
+                console.log(conditions)
                 this.dialogTableVisible = false;
             };
-            
+
         },
         removeRow(){
             if(this.table.selectedRow !== undefined){
@@ -260,7 +269,7 @@ export default {
                 //获取配置的条件表达
                 let condition = conditionExpression.get('body');
                 this.parseCondition(condition);
-            } 
+            }
         },
         parseCondition(conditionExpress){
             let operators = ['!','=','>','<'];
@@ -271,7 +280,7 @@ export default {
             splitConditionExpress(conditionExpress);
             //截取表达时候
             function splitConditionExpress(str){
-                //正查找查找操作符 
+                //正查找查找操作符
                 let idx = findChar(str,true,true,logicOperators);
                 if(idx == -1){
                     let row = createConditionRow(str);
@@ -380,7 +389,7 @@ export default {
             //获取流程图中的所有可能经历过的节点
             let allPreNodes = ngGraph.allPredecessors(this.element.id);
             // 这里我设置为空，需要自己加
-            this.conditionList = [];
+            // this.conditionList = [];
         },
         //设置组件的值
         initSubComponent(variableInfo){
@@ -393,7 +402,14 @@ export default {
                     this.form.tmp.conditionalValData = wfResult;
                 }
                 if (variableInfo.type == "number") {
-                    $scope.dataStatus.INPUT = true;
+                    // $scope.dataStatus.INPUT = true;
+                    this.form.tmp.componentType = 'input';
+                    this.form.tmp.conditionalValData = undefined;
+                    return;
+                }
+                if (variableInfo.type == "text") {
+                    this.form.tmp.componentType = 'input';
+                    this.form.tmp.conditionalValData = undefined;
                     return;
                 }
 
@@ -430,10 +446,12 @@ export default {
                     //翻译变量名称
                     condition.variableLabel = conditionInfo.TEXT;
                     //如果条件类型为结果类型的
-                    if(conditionInfo.type = 'result'){
+                    if(conditionInfo.type == 'result'){
                         //翻译条件值
                         let resultInfo = find(wfResult,{VALUE:condition.conditionalVal});
                         condition.conditionalValLabel = resultInfo.TEXT;
+                    } else {
+                        condition.conditionalValLabel = condition.conditionalVal;
                     }
                 }
                 let optInfo = find(OperatorAllOptions,{VALUE:condition.conditionalOpt});
@@ -448,6 +466,7 @@ export default {
                 }else{
                     condition.logicLabel = '无';
                 }
+
             });
         },
         getVariableInfo(variableVal){
@@ -460,7 +479,7 @@ export default {
     watch:{
         element:{
             deep:true,
-            immediate: true, 
+            immediate: true,
             handler(element,oldVal){
                 this.name = element.businessObject.name;
                 //显示条件配置选项
@@ -498,14 +517,14 @@ export default {
         //     if(!this.element.source){
         //         return;
         //     }
-            
+
         //     this.modeling.updateProperties(this.element, {
         //         'defaultflow': newVal
         //     })
         // },
         //监控变量的值
         'form.variable':{
-            immediate: true, 
+            immediate: true,
             handler:function(newVal,oldVal){
                 if(newVal === ''){
                     return;
@@ -520,7 +539,7 @@ export default {
                     currentRow.variableLabel = variableInfo.TEXT;
                     this.$set(this.table.conditions,index,currentRow);
                 }
-                
+
             }
         },
         'form.conditionalOpt':function(newVal,oldVal){
@@ -529,7 +548,7 @@ export default {
             if(currentRow){
                 if(variableInfo){
                     let index = findIndex(this.table.conditions,{id:currentRow.id});
-                    if(variableInfo.type == 'result'){
+                    if(variableInfo.type == 'result' || variableInfo.type == 'text'){
                         currentRow.conditionalOpt = newVal;
                         let opt = find(OperatorLessOptions,{VALUE:newVal})
                         if(opt){
@@ -537,10 +556,18 @@ export default {
                         }
                         this.$set(this.table.conditions,index,currentRow);
                     }
+                    if(variableInfo.type == 'number'){
+                        currentRow.conditionalOpt = newVal;
+                        let opt = find(OperatorAllOptions,{VALUE:newVal})
+                        if(opt){
+                          currentRow.conditionalOptLabel = opt.TEXT;
+                        }
+                        this.$set(this.table.conditions,index,currentRow);
+                    }
                 }
             }
-            
-          
+
+
         },
         'form.conditionalVal':function(newVal,oldVal){
             if(newVal !== oldVal){
@@ -557,13 +584,18 @@ export default {
                             }
                             this.$set(this.table.conditions,index,currentRow);
                         }
+                      if(variableInfo.type == 'number' || variableInfo.type == 'text'){
+                        currentRow.conditionalVal = newVal;
+                        currentRow.conditionalValLabel = newVal;
+                        this.$set(this.table.conditions,index,currentRow);
+                      }
                     }
                 }
-               
+
             }
         },
         'form.logic':{
-            immediate: true, 
+            immediate: true,
             handler:function(newVal,oldVal){
                 let currentRow = this.table.selectedRow;
                 if(currentRow){
@@ -586,7 +618,7 @@ export default {
         },
         'table.selectedRow':{
             deep:true,
-            immediate: true, 
+            immediate: true,
             handler:function(newVal){
                 if(newVal !== undefined){
                     this.formShow = true;
@@ -603,7 +635,7 @@ export default {
              }
         },
         'table.conditions':{
-            immediate: true, 
+            immediate: true,
             handler:function(conditions){
                 if(conditions === undefined || conditions.length == 0){
                      this.condition = '未配置任何条件';

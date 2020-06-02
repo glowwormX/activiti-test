@@ -114,7 +114,7 @@ public class ProcessDesignServiceImpl implements ProcessDesignService {
         String processName = modelData.getName() + ".bpmn20.xml";
         Deployment deployment = repositoryService.createDeployment()
                 .name(modelData.getName())
-                .addString(processName, new String(bpmnBytes, "UTF-8"))
+                .addString(processName, new String(bpmnBytes))
                 .deploy();
         modelData.setDeploymentId(deployment.getId());
         repositoryService.saveModel(modelData);

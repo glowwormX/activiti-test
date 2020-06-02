@@ -1,6 +1,6 @@
 /*
- * static.js文件为自动生成文件，修改无效 
- * 如要修改请到 test im.dhc.workflow.tools文件下 
+ * static.js文件为自动生成文件，修改无效
+ * 如要修改请到 test im.dhc.workflow.tools文件下
  * 运行generateJsFilesTest函数进行修改
  */
 export var IntAttri = {
@@ -162,6 +162,10 @@ export const LogicOptions = [
     {TEXT:'并且',VALUE:'&&'},
     {TEXT:'或者',VALUE:'||'}
 ];
+export const ConditionList = [
+    {TEXT:'天数',VALUE:'day',type:'number'},
+    {TEXT:'理由',VALUE:'reason',type:'text'},
+];
 export const wfResult = [
     {TEXT:'通过',VALUE:'pass'},
     {TEXT:'不通过',VALUE:'unpass'}
@@ -179,7 +183,7 @@ export const TxType = ['',
 ];
 
 export const TxTypeMap = {1:'申请',4:'审批',5:'记账'};
-   
+
 
 export const NodeTypeMap = {0:'非关键节点',1:'关键节点',2:'开始节点'};
 

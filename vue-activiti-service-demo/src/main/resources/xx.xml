@@ -1,31 +1,186 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://activiti.org/bpmn">
-    <process id="Process_1" isExecutable="true" process_namespace="http://activiti.org/bpmn" process_id="http://activiti.org/bpmn">
-        <startEvent id="StartEvent_0bp0vzh" name="开始"></startEvent>
-        <userTask id="UserTask_1nrda7s" name="员工" multiinstance_type="None"></userTask>
-        <sequenceFlow id="SequenceFlow_1iamgnp" sourceRef="StartEvent_0bp0vzh" targetRef="UserTask_1nrda7s"></sequenceFlow>
-        <intermediateThrowEvent id="IntermediateThrowEvent_0om9pee" name="交易终止"></intermediateThrowEvent>
-        <sequenceFlow id="SequenceFlow_0gk11d5" sourceRef="UserTask_1nrda7s" targetRef="IntermediateThrowEvent_0om9pee"></sequenceFlow>
-    </process>
-    <bpmndi:BPMNDiagram id="BPMNDiagram_Process_1">
-        <bpmndi:BPMNPlane bpmnElement="Process_1" id="BPMNPlane_Process_1">
-            <bpmndi:BPMNShape bpmnElement="StartEvent_0bp0vzh" id="BPMNShape_StartEvent_0bp0vzh">
-                <omgdc:Bounds height="36.0" width="36.0" x="342.0" y="172.0"></omgdc:Bounds>
-            </bpmndi:BPMNShape>
-            <bpmndi:BPMNShape bpmnElement="UserTask_1nrda7s" id="BPMNShape_UserTask_1nrda7s">
-                <omgdc:Bounds height="80.0" width="100.0" x="430.0" y="150.0"></omgdc:Bounds>
-            </bpmndi:BPMNShape>
-            <bpmndi:BPMNShape bpmnElement="IntermediateThrowEvent_0om9pee" id="BPMNShape_IntermediateThrowEvent_0om9pee">
-                <omgdc:Bounds height="36.0" width="36.0" x="582.0" y="172.0"></omgdc:Bounds>
-            </bpmndi:BPMNShape>
-            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_1iamgnp" id="BPMNEdge_SequenceFlow_1iamgnp">
-                <omgdi:waypoint x="378.0" y="190.0"></omgdi:waypoint>
-                <omgdi:waypoint x="430.0" y="190.0"></omgdi:waypoint>
-            </bpmndi:BPMNEdge>
-            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_0gk11d5" id="BPMNEdge_SequenceFlow_0gk11d5">
-                <omgdi:waypoint x="530.0" y="190.0"></omgdi:waypoint>
-                <omgdi:waypoint x="582.0" y="190.0"></omgdi:waypoint>
-            </bpmndi:BPMNEdge>
-        </bpmndi:BPMNPlane>
-    </bpmndi:BPMNDiagram>
-</definitions>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- created with bpmn-js / http://bpmn.io -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="528" height="202"
+     viewBox="296 154 528 202" version="1.1">
+    <defs>
+        <marker id="sequenceflow-end-white-black-eknx6lww8290nl9jdmmvirkht" viewBox="0 0 20 20" refX="11" refY="10"
+                markerWidth="10" markerHeight="10" orient="auto">
+            <path d="M 1 5 L 11 10 L 1 15 Z"
+                  style="fill: black; stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000, 1; stroke: black;"/>
+        </marker>
+    </defs>
+    <g class="djs-group">
+        <g class="djs-element djs-connection" data-element-id="SequenceFlow_18p55sa" style="display: block;">
+            <g class="djs-visual">
+                <path d="m  560,310L800,310 L800,218 "
+                      style="fill: none; stroke-width: 2px; stroke: black; stroke-linejoin: round; marker-end: url('#sequenceflow-end-white-black-eknx6lww8290nl9jdmmvirkht');"/>
+            </g>
+            <polyline points="560,310 800,310 800,218 " class="djs-hit djs-hit-stroke"
+                      style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"/>
+            <rect x="554" y="212" width="252" height="104" class="djs-outline" style="fill: none;"/>
+        </g>
+    </g>
+    <g class="djs-group">
+        <g class="djs-element djs-connection" data-element-id="SequenceFlow_0r4s8d9" style="display: block;">
+            <g class="djs-visual">
+                <path d="m  720,200L782,200 "
+                      style="fill: none; stroke-width: 2px; stroke: black; stroke-linejoin: round; marker-end: url('#sequenceflow-end-white-black-eknx6lww8290nl9jdmmvirkht');"/>
+            </g>
+            <polyline points="720,200 782,200 " class="djs-hit djs-hit-stroke"
+                      style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"/>
+            <rect x="714" y="194" width="74" height="12" class="djs-outline" style="fill: none;"/>
+        </g>
+    </g>
+    <g class="djs-group">
+        <g class="djs-element djs-connection" data-element-id="SequenceFlow_06za8et" style="display: block;">
+            <g class="djs-visual">
+                <path d="m  560,200L620,200 "
+                      style="fill: none; stroke-width: 2px; stroke: black; stroke-linejoin: round; marker-end: url('#sequenceflow-end-white-black-eknx6lww8290nl9jdmmvirkht');"/>
+            </g>
+            <polyline points="560,200 620,200 " class="djs-hit djs-hit-stroke"
+                      style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"/>
+            <rect x="554" y="194" width="72" height="12" class="djs-outline" style="fill: none;"/>
+        </g>
+    </g>
+    <g class="djs-group">
+        <g class="djs-element djs-connection" data-element-id="SequenceFlow_1bn5xk2" style="display: block;">
+            <g class="djs-visual">
+                <path d="m  320,218L320,310 L460,310 "
+                      style="fill: none; stroke-width: 2px; stroke: black; stroke-linejoin: round; marker-end: url('#sequenceflow-end-white-black-eknx6lww8290nl9jdmmvirkht');"/>
+            </g>
+            <polyline points="320,218 320,310 460,310 " class="djs-hit djs-hit-stroke"
+                      style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"/>
+            <rect x="314" y="212" width="152" height="104" class="djs-outline" style="fill: none;"/>
+        </g>
+    </g>
+    <g class="djs-group">
+        <g class="djs-element djs-connection" data-element-id="SequenceFlow_19xchu2" style="display: block;">
+            <g class="djs-visual">
+                <path d="m  338,200L460,200 "
+                      style="fill: none; stroke-width: 2px; stroke: black; stroke-linejoin: round; marker-end: url('#sequenceflow-end-white-black-eknx6lww8290nl9jdmmvirkht');"/>
+            </g>
+            <polyline points="338,200 460,200 " class="djs-hit djs-hit-stroke"
+                      style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"/>
+            <rect x="332" y="194" width="134" height="12" class="djs-outline" style="fill: none;"/>
+        </g>
+    </g>
+    <g class="djs-group">
+        <g class="djs-element djs-shape" data-element-id="StartEvent_1rrpiof" style="display: block;"
+           transform="matrix(1 0 0 1 302 182)">
+            <g class="djs-visual">
+                <circle cx="18" cy="18" r="18"
+                        style="stroke: black; stroke-width: 2px; fill: white; fill-opacity: 0.95;"/>
+            </g>
+            <rect class="djs-hit djs-hit-all" x="0" y="0" width="36" height="36"
+                  style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"/>
+            <rect x="-6" y="-6" width="48" height="48" class="djs-outline" style="fill: none;"/>
+        </g>
+    </g>
+    <g class="djs-group">
+        <g class="djs-element djs-shape" data-element-id="UserTask_0swcwe9" style="display: block;"
+           transform="matrix(1 0 0 1 460 160)">
+            <g class="djs-visual">
+                <rect x="0" y="0" width="100" height="80" rx="10" ry="10"
+                      style="stroke: black; stroke-width: 2px; fill: white; fill-opacity: 0.95;"/>
+                <text lineHeight="1.2" class="djs-label"
+                      style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: black;">
+                    <tspan x="25.8125" y="43.599999999999994">manager</tspan>
+                </text>
+                <path d="m 15,12 c 0.909,-0.845 1.594,-2.049 1.594,-3.385 0,-2.554 -1.805,-4.62199999 -4.357,-4.62199999 -2.55199998,0 -4.28799998,2.06799999 -4.28799998,4.62199999 0,1.348 0.974,2.562 1.89599998,3.405 -0.52899998,0.187 -5.669,2.097 -5.794,4.7560005 v 6.718 h 17 v -6.718 c 0,-2.2980005 -5.5279996,-4.5950005 -6.0509996,-4.7760005 zm -8,6 l 0,5.5 m 11,0 l 0,-5"
+                      style="fill: white; stroke-width: 0.5px; stroke: black;"/>
+                <path d="m 15,12 m 2.162,1.009 c 0,2.4470005 -2.158,4.4310005 -4.821,4.4310005 -2.66499998,0 -4.822,-1.981 -4.822,-4.4310005 "
+                      style="fill: white; stroke-width: 0.5px; stroke: black;"/>
+                <path d="m 15,12 m -6.9,-3.80 c 0,0 2.25099998,-2.358 4.27399998,-1.177 2.024,1.181 4.221,1.537 4.124,0.965 -0.098,-0.57 -0.117,-3.79099999 -4.191,-4.13599999 -3.57499998,0.001 -4.20799998,3.36699999 -4.20699998,4.34799999 z"
+                      style="fill: black; stroke-width: 0.5px; stroke: black;"/>
+            </g>
+            <rect class="djs-hit djs-hit-all" x="0" y="0" width="100" height="80"
+                  style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"/>
+            <rect x="-6" y="-6" width="112" height="92" class="djs-outline" style="fill: none;"/>
+        </g>
+    </g>
+    <g class="djs-group">
+        <g class="djs-element djs-shape" data-element-id="UserTask_1ho47ra" style="display: block;"
+           transform="matrix(1 0 0 1 460 270)">
+            <g class="djs-visual">
+                <rect x="0" y="0" width="100" height="80" rx="10" ry="10"
+                      style="stroke: black; stroke-width: 2px; fill: white; fill-opacity: 0.95;"/>
+                <text lineHeight="1.2" class="djs-label"
+                      style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: black;">
+                    <tspan x="25.8125" y="43.599999999999994">manager</tspan>
+                </text>
+                <path d="m 15,12 c 0.909,-0.845 1.594,-2.049 1.594,-3.385 0,-2.554 -1.805,-4.62199999 -4.357,-4.62199999 -2.55199998,0 -4.28799998,2.06799999 -4.28799998,4.62199999 0,1.348 0.974,2.562 1.89599998,3.405 -0.52899998,0.187 -5.669,2.097 -5.794,4.7560005 v 6.718 h 17 v -6.718 c 0,-2.2980005 -5.5279996,-4.5950005 -6.0509996,-4.7760005 zm -8,6 l 0,5.5 m 11,0 l 0,-5"
+                      style="fill: white; stroke-width: 0.5px; stroke: black;"/>
+                <path d="m 15,12 m 2.162,1.009 c 0,2.4470005 -2.158,4.4310005 -4.821,4.4310005 -2.66499998,0 -4.822,-1.981 -4.822,-4.4310005 "
+                      style="fill: white; stroke-width: 0.5px; stroke: black;"/>
+                <path d="m 15,12 m -6.9,-3.80 c 0,0 2.25099998,-2.358 4.27399998,-1.177 2.024,1.181 4.221,1.537 4.124,0.965 -0.098,-0.57 -0.117,-3.79099999 -4.191,-4.13599999 -3.57499998,0.001 -4.20799998,3.36699999 -4.20699998,4.34799999 z"
+                      style="fill: black; stroke-width: 0.5px; stroke: black;"/>
+            </g>
+            <rect class="djs-hit djs-hit-all" x="0" y="0" width="100" height="80"
+                  style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"/>
+            <rect x="-6" y="-6" width="112" height="92" class="djs-outline" style="fill: none;"/>
+        </g>
+    </g>
+    <g class="djs-group">
+        <g class="djs-element djs-shape" data-element-id="UserTask_184wdnc" style="display: block;"
+           transform="matrix(1 0 0 1 620 160)">
+            <g class="djs-visual">
+                <rect x="0" y="0" width="100" height="80" rx="10" ry="10"
+                      style="stroke: black; stroke-width: 2px; fill: white; fill-opacity: 0.95;"/>
+                <text lineHeight="1.2" class="djs-label"
+                      style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: black;">
+                    <tspan x="37.3203125" y="43.599999999999994">boss</tspan>
+                </text>
+                <path d="m 15,12 c 0.909,-0.845 1.594,-2.049 1.594,-3.385 0,-2.554 -1.805,-4.62199999 -4.357,-4.62199999 -2.55199998,0 -4.28799998,2.06799999 -4.28799998,4.62199999 0,1.348 0.974,2.562 1.89599998,3.405 -0.52899998,0.187 -5.669,2.097 -5.794,4.7560005 v 6.718 h 17 v -6.718 c 0,-2.2980005 -5.5279996,-4.5950005 -6.0509996,-4.7760005 zm -8,6 l 0,5.5 m 11,0 l 0,-5"
+                      style="fill: white; stroke-width: 0.5px; stroke: black;"/>
+                <path d="m 15,12 m 2.162,1.009 c 0,2.4470005 -2.158,4.4310005 -4.821,4.4310005 -2.66499998,0 -4.822,-1.981 -4.822,-4.4310005 "
+                      style="fill: white; stroke-width: 0.5px; stroke: black;"/>
+                <path d="m 15,12 m -6.9,-3.80 c 0,0 2.25099998,-2.358 4.27399998,-1.177 2.024,1.181 4.221,1.537 4.124,0.965 -0.098,-0.57 -0.117,-3.79099999 -4.191,-4.13599999 -3.57499998,0.001 -4.20799998,3.36699999 -4.20699998,4.34799999 z"
+                      style="fill: black; stroke-width: 0.5px; stroke: black;"/>
+            </g>
+            <rect class="djs-hit djs-hit-all" x="0" y="0" width="100" height="80"
+                  style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"/>
+            <rect x="-6" y="-6" width="112" height="92" class="djs-outline" style="fill: none;"/>
+        </g>
+    </g>
+    <g class="djs-group">
+        <g class="djs-element djs-shape" data-element-id="EndEvent_06ae8yi" style="display: block;"
+           transform="matrix(1 0 0 1 782 182)">
+            <g class="djs-visual">
+                <circle cx="18" cy="18" r="18"
+                        style="stroke: black; stroke-width: 4px; fill: white; fill-opacity: 0.95;"/>
+            </g>
+            <rect class="djs-hit djs-hit-all" x="0" y="0" width="36" height="36"
+                  style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"/>
+            <rect x="-6" y="-6" width="48" height="48" class="djs-outline" style="fill: none;"/>
+        </g>
+    </g>
+    <g class="djs-group">
+        <g class="djs-element djs-shape" data-element-id="StartEvent_1rrpiof_label" style="display: block;"
+           transform="matrix(1 0 0 1 309 163)">
+            <g class="djs-visual">
+                <text lineHeight="1.2" class="djs-label"
+                      style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;">
+                    <tspan x="0" y="9.899999999999999">开始</tspan>
+                </text>
+            </g>
+            <rect class="djs-hit djs-hit-all" x="0" y="0" width="22" height="14"
+                  style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"/>
+            <rect x="-6" y="-6" width="34" height="26" class="djs-outline" style="fill: none;"/>
+        </g>
+    </g>
+    <g class="djs-group">
+        <g class="djs-element djs-shape selected" data-element-id="EndEvent_06ae8yi_label" style="display: block;"
+           transform="matrix(1 0 0 1 790 163)">
+            <g class="djs-visual">
+                <text lineHeight="1.2" class="djs-label"
+                      style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;">
+                    <tspan x="0" y="9.899999999999999">end</tspan>
+                </text>
+            </g>
+            <rect class="djs-hit djs-hit-all" x="0" y="0" width="19" height="14"
+                  style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"/>
+            <rect x="-6" y="-6" width="31" height="26" class="djs-outline" style="fill: none;"/>
+        </g>
+    </g>
+</svg>
