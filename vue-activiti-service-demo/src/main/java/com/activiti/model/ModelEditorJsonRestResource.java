@@ -59,4 +59,29 @@ public class ModelEditorJsonRestResource implements ModelDataJsonConstants {
         }
         return jsonObject;
     }
+
+    public JSONObject getEditorXmlSource(@PathVariable String modelId) {
+        JSONObject jsonObject = null;
+        Model model = repositoryService.getModel(modelId);
+        if (model != null) {
+            try {
+                if (StringUtils.isNotEmpty(model.getMetaInfo())) {
+                    jsonObject = JSON.parseObject(model.getMetaInfo());
+                } else {
+                    jsonObject = new JSONObject();
+                    jsonObject.put(MODEL_NAME, model.getName());
+                }
+                jsonObject.put(MODEL_ID, model.getId());
+                byte[] extra = repositoryService.getModelEditorSourceExtra(model.getId());
+                jsonObject.put("bpmnXml", new String(extra));
+            } catch (Exception e) {
+                LOG.error("创建model的json串失败", e);
+                throw new ActivitiException("无法读取model信息", e);
+            }
+        } else {
+            LOG.error("创建model的json串失败[{}]", modelId);
+            throw new ActivitiException("未找到对应模型信息");
+        }
+        return jsonObject;
+    }
 }

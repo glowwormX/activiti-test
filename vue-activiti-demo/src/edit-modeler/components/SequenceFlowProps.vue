@@ -43,24 +43,25 @@
                                 <div v-if="formShow === true">
                                     <el-form label-width="auto" size="mini" label-position="top">
                                         <el-form-item label="变量">
-                                            <el-select v-model="form.variable" placeholder="请选择">
-                                                <el-option
-                                                    v-for="item in conditionList"
-                                                    :key="item.VALUE"
-                                                    :label="item.TEXT"
-                                                    :value="item.VALUE">
-                                                </el-option>
+                                            <el-select v-model="cn.echaincity.workflow.form.variable" placeholder="请选择">
+                                              <el-option
+                                                v-for="item in conditionList"
+                                                :key="item.VALUE"
+                                                :label="item.TEXT"
+                                                :value="item.VALUE">
+                                              </el-option>
                                             </el-select>
                                         </el-form-item>
                                         <el-form-item label="判断条件">
-                                            <el-select v-model="form.conditionalOpt" placeholder="请选择">
-                                                <el-option
-                                                    v-for="item in conditionalOpts"
-                                                    :key="item.VALUE"
-                                                    :label="item.TEXT"
-                                                    :value="item.VALUE">
-                                                </el-option>
-                                            </el-select>
+                                          <el-select v-model="cn.echaincity.workflow.form.conditionalOpt"
+                                                     placeholder="请选择">
+                                            <el-option
+                                              v-for="item in conditionalOpts"
+                                              :key="item.VALUE"
+                                              :label="item.TEXT"
+                                              :value="item.VALUE">
+                                            </el-option>
+                                          </el-select>
                                         </el-form-item>
 <!--                                      <el-form-item label="变量">-->
 <!--                                        <el-input v-model="form.variable"></el-input>-->
@@ -69,18 +70,20 @@
 <!--                                        <el-input v-model="form.conditionalOpt"></el-input>-->
 <!--                                      </el-form-item>-->
                                         <el-form-item label="值">
-                                            <AdapterComponent :type ="form.tmp.componentType" :data="form.tmp.conditionalValData" v-model="form.conditionalVal"></AdapterComponent>
+                                          <AdapterComponent :type="cn.echaincity.workflow.form.tmp.componentType"
+                                                            :data="cn.echaincity.workflow.form.tmp.conditionalValData"
+                                                            v-model="cn.echaincity.workflow.form.conditionalVal"></AdapterComponent>
                                         </el-form-item>
                                         <el-form-item label="逻辑">
 
-                                            <el-select v-model="form.logic" placeholder="请选择">
-                                                <el-option
-                                                    v-for="item in logicOptions"
-                                                    :key="item.VALUE"
-                                                    :label="item.TEXT"
-                                                    :value="item.VALUE">
+                                          <el-select v-model="cn.echaincity.workflow.form.logic" placeholder="请选择">
+                                            <el-option
+                                              v-for="item in logicOptions"
+                                              :key="item.VALUE"
+                                              :label="item.TEXT"
+                                              :value="item.VALUE">
                                             </el-option>
-                                            </el-select>
+                                          </el-select>
                                         </el-form-item>
                                     </el-form>
                                 </div>

@@ -1,7 +1,11 @@
 package com.activiti.controller;
 
+import cn.echaincity.workflow.form.BaseForm;
 import com.google.common.collect.Maps;
+import cn.echaincity.workflow.form.widget.define.BaseWidgetDefine;
+import cn.echaincity.workflow.form.widget.define.WidgetDefineFactory;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.activiti.engine.*;
 import org.activiti.engine.form.FormProperty;
 import org.activiti.engine.form.StartFormData;
@@ -185,7 +189,7 @@ public class ActivitiTestController {
         return inputStream;
     }
 
-    @RequestMapping(value = "startForm/{procDefId}")
+    @GetMapping(value = "startForm/{procDefId}")
     public Model startForm(@PathVariable(value = "procDefId") String procDefId, Model model) {
 
         Map<String, Map<String, String>> result = Maps.newHashMap();

@@ -1,0 +1,121 @@
+[
+  {
+    "label": "单行文本",
+    "type": "TEXT",
+    "attributeDefine": [
+      {
+        "attributeId": "id",
+        "attributeLabel": "唯一标识",
+        "attributeType": "DISABLE"
+      },
+      {
+        "attributeId": "label",
+        "attributeLabel": "标题",
+        "attributeType": "TEXT"
+      },
+      {
+        "attributeId": "description",
+        "attributeLabel": "描述信息",
+        "attributeType": "TEXT"
+      },
+      {
+        "attributeId": "defaultValue",
+        "attributeLabel": "默认值",
+        "attributeType": "CHECK_SINGLE",
+        "defaultValues": [
+          {
+            "attributeId": "custom",
+            "attributeLabel": "自定义",
+            "attributeType": "TEXT"
+          }
+        ]
+      },
+      {
+        "attributeId": "format",
+        "attributeLabel": "格式",
+        "attributeType": "SELECT_SINGLE",
+        "allRegexList": [
+          "邮箱",
+          "身份证",
+          "手机",
+          "电话",
+          "邮编"
+        ]
+      },
+      {
+        "attributeId": "validate",
+        "attributeLabel": "校验",
+        "attributeType": "CHECK_SINGLE",
+        "filters": [
+          {
+            "attributeId": "required",
+            "attributeLabel": "必填",
+            "attributeType": "LABEL"
+          },
+          {
+            "attributeId": "unique",
+            "attributeLabel": "不可重复",
+            "attributeType": "LABEL"
+          }
+        ]
+      }
+    ],
+    "status": null
+  },
+  {
+    "label": "下拉框",
+    "type": "SELECT_SINGLE",
+    "attributeDefine": [
+      {
+        "attributeId": "id",
+        "attributeLabel": "唯一标识",
+        "attributeType": "DISABLE"
+      },
+      {
+        "attributeId": "label",
+        "attributeLabel": "标题",
+        "attributeType": "TEXT"
+      },
+      {
+        "attributeId": "description",
+        "attributeLabel": "描述信息",
+        "attributeType": "TEXT"
+      },
+      {
+        "attributeId": "selectItems",
+        "attributeLabel": "下拉选项",
+        "attributeType": "SELECT_SINGLE",
+        "selectValues": [
+          {
+            "attributeId": "custom",
+            "attributeLabel": "自定义",
+            "attributeType": "LABEL"
+          },
+          {
+            "attributeId": "formData",
+            "attributeLabel": "从其他表单数据获取",
+            "attributeType": "SELECT_SINGLE"
+          }
+        ]
+      },
+      {
+        "attributeId": "validate",
+        "attributeLabel": "校验",
+        "attributeType": "CHECK_SINGLE",
+        "filters": [
+          {
+            "attributeId": "required",
+            "attributeLabel": "必填",
+            "attributeType": "LABEL"
+          },
+          {
+            "attributeId": "unique",
+            "attributeLabel": "不可重复",
+            "attributeType": "LABEL"
+          }
+        ]
+      }
+    ],
+    "status": null
+  }
+]

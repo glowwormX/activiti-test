@@ -75,7 +75,7 @@ public class ProcessDesignController {
     @RequestMapping(value = "/model/{modelId}/xml", method = RequestMethod.GET, produces = "application/json")
     @ResponseStatus(value = HttpStatus.OK)
     public JSONObject getEditorXml(@PathVariable String modelId) {
-        return modelEditorJsonRestResource.getEditorXml(modelId);
+        return modelEditorJsonRestResource.getEditorXmlSource(modelId);
     }
     
     @GetMapping(value = "/model/deploy")

@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.6.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 	<groupId>com.activiti</groupId>
 	<artifactId>vue-activiti-service-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -22,16 +22,22 @@
 		<activiti.version>5.22.0</activiti.version>
 	</properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>cn.echaincity.workflow</groupId>
+            <artifactId>form-design</artifactId>
+            <version>1.0</version>
+        </dependency>
 
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.version}</version>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -60,27 +66,31 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.activiti</groupId>
-			<artifactId>activiti-modeler</artifactId>
-			<version>${activiti.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.activiti</groupId>
-			<artifactId>activiti-diagram-rest</artifactId>
-			<version>${activiti.version}</version>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.activiti/activiti-bpmn-model -->
-		<!--<dependency>-->
-			<!--<groupId>org.activiti</groupId>-->
-			<!--<artifactId>activiti-bpmn-model</artifactId>-->
-			<!--<version>7.1.0.M6</version>-->
-		<!--</dependency>-->
-		<!--&lt;!&ndash; https://mvnrepository.com/artifact/org.activiti/activiti-bpmn-converter &ndash;&gt;-->
-		<!--<dependency>-->
-			<!--<groupId>org.activiti</groupId>-->
-			<!--<artifactId>activiti-bpmn-converter</artifactId>-->
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-modeler</artifactId>
+            <version>${activiti.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-diagram-rest</artifactId>
+            <version>${activiti.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.activiti/activiti-bpmn-model -->
+        <!--<dependency>-->
+        <!--<groupId>org.activiti</groupId>-->
+        <!--<artifactId>activiti-bpmn-model</artifactId>-->
+        <!--<version>7.1.0.M6</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.activiti/activiti-bpmn-converter &ndash;&gt;-->
+        <!--<dependency>-->
+        <!--<groupId>org.activiti</groupId>-->
+        <!--<artifactId>activiti-bpmn-converter</artifactId>-->
 			<!--<version>7.1.0.M6</version>-->
 		<!--</dependency>-->
 		
@@ -141,17 +151,23 @@
 			<artifactId>persistence-api</artifactId>
 			<version>1.0.2</version>
 		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.7.0</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.7.0</version>
-		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>1.9.6</version>
+        </dependency>
+
+    </dependencies>
 
 	<build>
 		<plugins>

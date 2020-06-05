@@ -1,0 +1,105 @@
+{
+  "pcLayout": "单列",
+  "appLayout": "标准",
+  "formFields": [
+    {
+      "description": "标题",
+      "id": "field1",
+      "label": "文本",
+      "visible": true,
+      "editable": true,
+      "lineWidth": "100px",
+      "options": {},
+      "type": "TEXT"
+    },
+    {
+      "description": "描述信息",
+      "id": "table1",
+      "label": "一个表格",
+      "visible": true,
+      "editable": true,
+      "lineWidth": "400px",
+      "options": {
+        "items": [
+          {
+            "description": "想填啥填啥",
+            "id": "col1",
+            "label": "文本",
+            "visible": true,
+            "editable": true,
+            "lineWidth": "100px",
+            "options": {},
+            "type": "TEXT"
+          },
+          {
+            "id": "col2",
+            "label": "数字",
+            "visible": true,
+            "editable": true,
+            "lineWidth": "100px",
+            "options": {
+              "maxNumber": 100,
+              "minNumber": 0
+            },
+            "type": "NUMBER"
+          },
+          {
+            "id": "col3",
+            "label": "时间",
+            "visible": true,
+            "editable": true,
+            "lineWidth": "100px",
+            "options": {
+              "format": "yyyy-MM-dd HH:mm:ss",
+              "allowBlank": false
+            },
+            "type": "DATETIME"
+          },
+          {
+            "id": "col4",
+            "label": "单选",
+            "visible": true,
+            "editable": true,
+            "lineWidth": "100px",
+            "validate": {
+              "required": true,
+              "unique": false
+            },
+            "defaultValue": {
+            },
+            "type": "CHECK_SINGLE"
+          }
+        ]
+      },
+      "type": "TABLE"
+    },
+    {
+      "id": "image1",
+      "label": "图片",
+      "visible": true,
+      "editable": true,
+      "lineWidth": "200px",
+      "options": {
+        "maxFileCount": 2,
+        "compressed": false,
+        "onlyCamera": false
+      },
+      "type": "IMAGE"
+    },
+    {
+      "description": "选择用户",
+      "id": "user1",
+      "label": "填写人",
+      "visible": true,
+      "editable": true,
+      "lineWidth": "200px",
+      "options": {
+        "defaultValue": {
+          "id": "self",
+          "label": "当前用户"
+        }
+      },
+      "type": "USER_SINGLE"
+    }
+  ]
+}

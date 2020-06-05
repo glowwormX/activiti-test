@@ -109,10 +109,27 @@ public class ProcessDesignServiceImpl implements ProcessDesignService {
             return "数据模型不符合要求，请至少设计一条主线程流。";
         }
         byte[] bpmnBytes = new BpmnXMLConverter().convertToXML(model);
-    
+
         //发布流程
         String processName = modelData.getName() + ".bpmn20.xml";
         Deployment deployment = repositoryService.createDeployment()
+                .name(modelData.getName())
+                .addString(processName, new String(bpmnBytes))
+                .deploy();
+        modelData.setDeploymentId(deployment.getId());
+        repositoryService.saveModel(modelData);
+        return "success";
+    }
+
+    public String deployModel1(String modelId) throws Exception {
+        // 获取模型
+        Model modelData = repositoryService.getModel(modelId);
+        byte[] bpmnBytes = repositoryService.getModelEditorSourceExtra(modelData.getId());
+
+        //发布流程
+        String processName = modelData.getName() + ".bpmn20.xml";
+        Deployment deployment = repositoryService.createDeployment()
+                .disableSchemaValidation()
                 .name(modelData.getName())
                 .addString(processName, new String(bpmnBytes))
                 .deploy();
