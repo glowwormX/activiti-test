@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * @author xqw
- * @description:
+ * @description: 下拉：从其他表单数据获取
  * @date 2020/6/5
  */
 public class FormDataSelectValue extends WidgetAttributeDefine implements ISelectValue<List> {

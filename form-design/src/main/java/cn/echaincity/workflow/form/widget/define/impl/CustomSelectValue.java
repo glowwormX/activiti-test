@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * @author xqw
- * @description:
+ * @description: 下拉：自定义选择
  * @date 2020/6/5
  */
 public class CustomSelectValue extends WidgetAttributeDefine implements ISelectValue<List<String>>, WidgetAttributeInstance<List<String>> {

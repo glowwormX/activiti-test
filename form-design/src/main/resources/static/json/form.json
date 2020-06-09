@@ -1,7 +1,7 @@
 {
   "pcLayout": "单列",
   "appLayout": "标准",
-  "formFields": [
+  "formWidgets": [
     {
       "description": "标题",
       "id": "field1",
@@ -62,6 +62,8 @@
             "editable": true,
             "lineWidth": "100px",
             "options": {
+              "required": true,
+              "unique": false,
               "items": [
                 {
                   "id": "s1",

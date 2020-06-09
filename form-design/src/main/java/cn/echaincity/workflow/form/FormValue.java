@@ -15,7 +15,6 @@ public class FormValue {
     private String formId;
     private String processId;
     private Map<String, Object> values;
-    //    private List<WidgetValue> values;
     private Date createTime;
     private String createUser;
 }

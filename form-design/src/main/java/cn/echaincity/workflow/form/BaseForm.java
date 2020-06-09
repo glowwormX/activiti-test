@@ -20,5 +20,5 @@ public class BaseForm {
     private String appLayout;
 
     @ApiModelProperty("所有字段")
-    private List<BaseWidget> formFields;
+    private List<BaseWidget> formWidgets;
 }

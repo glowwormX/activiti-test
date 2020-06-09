@@ -10,7 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * @author crh
  */
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class}, scanBasePackages = {"cn.echaincity.workflow", "com.activiti"})
 @EnableSwagger2
 public class VueActivitiServiceDemoApplication {
 

@@ -6,17 +6,23 @@ import cn.echaincity.workflow.form.widget.define.intf.IValidatedFilter;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
  * @author xqw
- * @description:
+ * @description: 格式正则验证
  * @date 2020/6/4
  */
 public class RegexFormateFilter extends WidgetAttributeDefine implements IValidatedFilter {
     private static List<String> regexList = Arrays.asList("邮箱", "身份证", "手机", "电话", "邮编");
 
     private Pattern pattern;
+
+    @Override
+    public boolean needValidate(Map<String, Object> options) {
+        return false;
+    }
 
     @Override
     public boolean validate(Object value) {
